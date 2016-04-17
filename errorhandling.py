@@ -71,8 +71,8 @@ def get_x_rotation(x,y,z):
     return math.degrees(radians)
 
 address1 = 0x68       # This is the address value read via the i2cdetect command
-address2 = 0x69       # This is MPU #2	
-	
+address2 = 0x69       # This is MPU #2
+
 bus = smbus.SMBus(1) # or bus = smbus.SMBus(1) for Revision 2 boards
 
 # Now wake the 6050's up as it starts in sleep mode
@@ -107,8 +107,8 @@ def login_open_sheet(oauth_key_file, spreadsheet):
     #Connect to Google Docs spreadsheet and return the first worksheet
     try:
         json_key = json.load(open(oauth_key_file))
-        credentials = SignedJwtAssertionCredentials(json_key['client_email'], 
-                                                    json_key['private_key'], 
+        credentials = SignedJwtAssertionCredentials(json_key['client_email'],
+                                                    json_key['private_key'],
                                                     ['https://spreadsheets.google.com/feeds'])
         gc = gspread.authorize(credentials)
         worksheet = gc.open(spreadsheet).sheet1
