@@ -25,26 +25,26 @@ power_mgmt_1 = 0x6b
 power_mgmt_2 = 0x6c
 
 def try_io(call, tries=10):
-    assert tries > 0
-    error = None
-    result = None
+	assert tries > 0
+	error = None
+	result = None
 
-    while tries:
-        try:
+	while tries:
+		try:
 			print 'Trying sensor'
-            result = call()
-        except IOError as e:
-            error = e
-            tries -= 1
+			result = call()
+		except IOError as e:
+			error = e
+			tries -= 1
 			print 'Failed - tries remaining: ', tries
-        else:
-            break
+		else:
+			break
 
-    if not tries:
+	if not tries:
 		print '10 fails - crash!'
-        raise error
+		raise error
 
-    return result
+	return result
 
 def read_byte(address, adr):
     return bus.read_byte_data(address, adr)
