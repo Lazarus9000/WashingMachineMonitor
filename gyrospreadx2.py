@@ -31,14 +31,17 @@ def try_io(call, tries=10):
 
     while tries:
         try:
+			print 'Trying sensor'
             result = call()
         except IOError as e:
             error = e
             tries -= 1
+			print 'Failed - tries remaining: ', tries
         else:
             break
 
     if not tries:
+		print '10 fails - crash!'
         raise error
 
     return result
@@ -81,13 +84,13 @@ bus.write_byte_data(address2, power_mgmt_1, 0)
 
 try_io(lambda: read_word_2c(address1, 0x3b))
 
-prevX1 = read_word_2c(address1, 0x3b)
-prevY1 = read_word_2c(address1, 0x3d)
-prevZ1 = read_word_2c(address1, 0x3f)
+prevX1 = try_io(read_word_2c(address1, 0x3b))
+prevY1 = try_io(read_word_2c(address1, 0x3d))
+prevZ1 = try_io(read_word_2c(address1, 0x3f))
 
-prevX2 = read_word_2c(address2, 0x3b)
-prevY2 = read_word_2c(address2, 0x3d)
-prevZ2 = read_word_2c(address2, 0x3f)
+prevX2 = try_io(read_word_2c(address2, 0x3b))
+prevY2 = try_io(read_word_2c(address2, 0x3d))
+prevZ2 = try_io(read_word_2c(address2, 0x3f))
 
 time.sleep(1)
 GDOCS_OAUTH_JSON       = 'MyProject-43a6520ce94c.json'
