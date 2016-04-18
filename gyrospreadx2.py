@@ -84,7 +84,8 @@ bus.write_byte_data(address2, power_mgmt_1, 0)
 
 try_io(lambda: read_word_2c(address1, 0x3b))
 
-prevX1 = try_io(read_word_2c(address1, 0x3b))
+prevX1 = try_io(lambda: read_word_2c(address1, 0x3b))
+print 'output from tryPI!: ', prexX1
 prevY1 = try_io(read_word_2c(address1, 0x3d))
 prevZ1 = try_io(read_word_2c(address1, 0x3f))
 
