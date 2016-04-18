@@ -86,12 +86,12 @@ try_io(lambda: read_word_2c(address1, 0x3b))
 
 prevX1 = try_io(lambda: read_word_2c(address1, 0x3b))
 print 'output from tryPI!: ', prevX1
-prevY1 = try_io(read_word_2c(address1, 0x3d))
-prevZ1 = try_io(read_word_2c(address1, 0x3f))
+prevY1 = try_io(lambda: read_word_2c(address1, 0x3d))
+prevZ1 = try_io(lambda: read_word_2c(address1, 0x3f))
 
-prevX2 = try_io(read_word_2c(address2, 0x3b))
-prevY2 = try_io(read_word_2c(address2, 0x3d))
-prevZ2 = try_io(read_word_2c(address2, 0x3f))
+prevX2 = try_io(lambda: read_word_2c(address2, 0x3b))
+prevY2 = try_io(lambda: read_word_2c(address2, 0x3d))
+prevZ2 = try_io(lambda: read_word_2c(address2, 0x3f))
 
 time.sleep(1)
 GDOCS_OAUTH_JSON       = 'MyProject-43a6520ce94c.json'
@@ -137,11 +137,11 @@ while True:
         #gyro_yout = read_word_2c(adress1, 0x45)
         #gyro_zout = read_word_2c(adress1, 0x47)
 
-		accel_xout1 = read_word_2c(address1, 0x3b)
+		accel_xout1 = try_io(lambda: read_word_2c(address1, 0x3b))
 		time.sleep(.1)
-		accel_yout1 = read_word_2c(address1, 0x3d)
+		accel_yout1 = try_io(lambda: read_word_2c(address1, 0x3d))
 		time.sleep(.1)
-		accel_zout1 = read_word_2c(address1, 0x3f)
+		accel_zout1 = try_io(lambda: read_word_2c(address1, 0x3f))
 		time.sleep(.1)
 
 		diffAcc1 += abs(prevX1-accel_xout1)+abs(prevY1-accel_yout1)+abs(prevZ1-accel_zout1)
@@ -152,13 +152,13 @@ while True:
 		prevY1 = accel_yout1
 		prevZ1 = accel_zout1
 
-		accel_xout2 = read_word_2c(address2, 0x3b)
+		accel_xout2 = try_io(lambda: read_word_2c(address2, 0x3b))
 		#Got an error after a few hours of operation, which might be caused by accessing I/O to fast
 		#http://stackoverflow.com/questions/30325351/ioerror-errno-5-input-output-error-while-using-smbus-for-analog-reading-thr
 		time.sleep(.1)
-		accel_yout2 = read_word_2c(address2, 0x3d)
+		accel_yout2 = try_io(lambda: read_word_2c(address2, 0x3d))
 		time.sleep(.1)
-		accel_zout2 = read_word_2c(address2, 0x3f)
+		accel_zout2 = try_io(lambda: read_word_2c(address2, 0x3f))
 		time.sleep(.1)
 
 		diffAcc2 += abs(prevX2-accel_xout2)+abs(prevY2-accel_yout2)+abs(prevZ2-accel_zout2)
