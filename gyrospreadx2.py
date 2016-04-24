@@ -77,11 +77,18 @@ GPIO.setup(SPICLK, GPIO.OUT)
 GPIO.setup(SPICS, GPIO.OUT)
  
 # 10k trim pot connected to adc #0
-potentiometer_adc = 0;		
+mic1 = 3;		
+mic2 = 4;
 
-# read the analog pin
-trim_pot = readadc(potentiometer_adc, SPICLK, SPIMOSI, SPIMISO, SPICS)
-		
+
+def getMicIn(mic):
+	totalmic = 0
+	for x in range(0, 100):
+		micout = readadc(mic, SPICLK, SPIMOSI, SPIMISO, SPICS)
+		totalmic += abs(micout-512)
+		time.sleep(0.001)
+	return 	totalmic
+
 def try_io(call, tries=10):
 	assert tries > 0
 	error = None
@@ -234,6 +241,8 @@ while True:
 		#accel_zout_scaled = accel_zout / 16384.0
 	c = datetime.now()
 	#c = datetime.strptime(t.strftime(), '%H:%M:%S')
+	inputMic1 = getMicIn(mic1)
+	inputMic2 = getMicIn(mic2)
 	
 	if diffAcc1 < 50000 and status == "off":
 		s = datetime.now()
@@ -271,7 +280,9 @@ while True:
 	try:
 		print(diffAcc1)
 		print(diffAcc2)
-		worksheet.append_row((datetime.now(), diffAcc1, diffAcc2, status, notify))
+		print(inputMic1)
+		print(inputMic2)
+		worksheet.append_row((datetime.now(), diffAcc1, diffAcc2, inputMic1, inputMic2, status, notify))
 	except:
         # Error appending data, most likely because credentials are stale.
         # Null out the worksheet so a login is performed at the top of the loop.
