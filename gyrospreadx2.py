@@ -77,8 +77,8 @@ GPIO.setup(SPICLK, GPIO.OUT)
 GPIO.setup(SPICS, GPIO.OUT)
  
 # 10k trim pot connected to adc #0
-mic1 = 6;		
-mic2 = 7;
+mic1 = 0;		
+mic2 = 1;
 
 
 def getMicIn(mic):
