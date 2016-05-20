@@ -85,7 +85,7 @@ def getMicIn(mic):
 	totalmic = 0
 	for x in range(0, 100):
 		micout = readadc(mic, SPICLK, SPIMOSI, SPIMISO, SPICS)
-		totalmic += (abs(micout-512)/10000
+		totalmic += (abs(micout-512.0))/10000.0
                 time.sleep(0.001)
 	return 	totalmic
 
