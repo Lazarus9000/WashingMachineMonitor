@@ -77,16 +77,16 @@ GPIO.setup(SPICLK, GPIO.OUT)
 GPIO.setup(SPICS, GPIO.OUT)
  
 # 10k trim pot connected to adc #0
-mic1 = 0;		
-mic2 = 1;
+mic1 = 6;		
+mic2 = 7;
 
 
 def getMicIn(mic):
 	totalmic = 0
 	for x in range(0, 100):
 		micout = readadc(mic, SPICLK, SPIMOSI, SPIMISO, SPICS)
-		totalmic += (abs(micout-512.0))/10000.0
-                time.sleep(0.001)
+		totalmic += abs(micout-512.0)
+        time.sleep(0.001)
 	return 	totalmic
 
 def try_io(call, tries=10):
