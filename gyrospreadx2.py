@@ -13,7 +13,7 @@ import smbus
 import math
 import RPi.GPIO as GPIO
 
-DIR=/home/pi/FTP/git/WashingMachineMonitor
+DIR= '/home/pi/FTP/git/WashingMachineMonitor/'
 
 GPIO.setmode(GPIO.BCM)
 DEBUG = 1
@@ -162,7 +162,7 @@ bus = smbus.SMBus(1) # or bus = smbus.SMBus(1) for Revision 2 boards
 ##prevZ2 = try_io(lambda: read_word_2c(address2, 0x3f))
 
 time.sleep(1)
-GDOCS_OAUTH_JSON       = $DIR/MyProject-43a6520ce94c.json
+GDOCS_OAUTH_JSON       = DIR + 'MyProject-43a6520ce94c.json'
 
 status = "off"
 
