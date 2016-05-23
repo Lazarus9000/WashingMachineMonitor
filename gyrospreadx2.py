@@ -1,8 +1,8 @@
+#!/usr/bin/env python
 import json
 import sys
 import time
 #import datetime
-#!/usr/bin/env python
 from datetime import datetime, time as datetime_time, timedelta
 import pushybullet as pb
 
