@@ -1,0 +1,1 @@
+sudo setsid /home/pi/FTP/git/WashingMachineMonitor/gyrospreadx2.py >> /home/pi/FTP/git/WashingMachineMonitor/Full_log.txt 2>&1 &

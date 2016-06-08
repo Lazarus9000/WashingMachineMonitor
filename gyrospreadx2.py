@@ -81,12 +81,16 @@ GPIO.setup(SPICS, GPIO.OUT)
 # 10k trim pot connected to adc #0
 mic1 = 6;		
 mic2 = 7;
-
+miclist1 = [];
+miclist2 = [];
+samples = 100;
 
 def getMicIn(mic):
 	totalmic = 0
-	for x in range(0, 100):
+	templist = [];
+	for x in range(0, samples):
 		micout = readadc(mic, SPICLK, SPIMOSI, SPIMISO, SPICS)
+		templist.append(abs(micout-512.0)
 		totalmic += abs(micout-512.0)
         time.sleep(0.001)
 	return 	totalmic
@@ -244,7 +248,23 @@ while True:
 	c = datetime.now()
 	#c = datetime.strptime(t.strftime(), '%H:%M:%S')
 	inputMic1 = getMicIn(mic1)
+	miclist1 = templist;
+	#https://wiki.python.org/moin/HowTo/Sorting
+	sortlist = sorted(miclist1)
+	window = 20;
+	mid1 = sortlist[window:samples-window]
+	totalmid1 = 0;
+	for x in range(window, samples-window):		
+		totalmid1 += sortlist(x)
+		
 	inputMic2 = getMicIn(mic2)
+	miclist2 = templist;
+	sortlist = sorted(miclist2)
+	window = 20;
+	mid2 = sortlist[window:samples-window]
+	totalmid2 = 0;
+	for x in range(window, samples-window):		
+		totalmid2 += sortlist(x)
 	
 	if diffAcc1 < 50000 and status == "off":
 		s = datetime.now()
@@ -284,7 +304,7 @@ while True:
 		print(diffAcc2)
 		print(inputMic1)
 		print(inputMic2)
-		worksheet.append_row((datetime.now(), diffAcc1, diffAcc2, inputMic1, inputMic2, status, notify))
+		worksheet.append_row(datetime.now(), diffAcc1, diffAcc2, inputMic1, inputMic2, status, notify, totalmid1, totalmid2, miclist1, miclist2)
 	except:
         # Error appending data, most likely because credentials are stale.
         # Null out the worksheet so a login is performed at the top of the loop.
