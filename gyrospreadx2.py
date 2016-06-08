@@ -84,6 +84,7 @@ mic2 = 7;
 miclist1 = [];
 miclist2 = [];
 samples = 100;
+templist = [];
 
 def getMicIn(mic):
 	totalmic = 0
