@@ -264,7 +264,7 @@ while True:
 	window = 20;
 	mid2 = sortlist[window:samples-window]
 	totalmid2 = 0;
-	for x in range(window:samples-window):		
+	for x in range(window, samples-window):		
 		totalmid2 += sortlist[x]
 	
 	if diffAcc1 < 50000 and status == "off":
