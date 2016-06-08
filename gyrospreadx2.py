@@ -251,6 +251,7 @@ while True:
 	inputMic1 = getMicIn(mic1)
 	miclist1 = templist;
 	#https://wiki.python.org/moin/HowTo/Sorting
+	print miclist1
 	sortlist = sorted(miclist1)
 	window = 20;
 	mid1 = sortlist[window:samples-window]
