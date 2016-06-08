@@ -90,9 +90,9 @@ def getMicIn(mic):
 	templist = [];
 	for x in range(0, samples):
 		micout = readadc(mic, SPICLK, SPIMOSI, SPIMISO, SPICS)
-		templist.append(abs(micout-512.0)
+		templist.append(abs(micout-512.0))
 		totalmic += abs(micout-512.0)
-        time.sleep(0.001)
+		time.sleep(0.001)
 	return 	totalmic
 
 def try_io(call, tries=10):
