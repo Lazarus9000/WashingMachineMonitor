@@ -255,7 +255,7 @@ while True:
 	window = 20;
 	mid1 = sortlist[window:samples-window]
 	totalmid1 = 0;
-	for x in range(window, samples-window):		
+	for x in range(20, 80):		
 		totalmid1 += sortlist[x]
 		
 	inputMic2 = getMicIn(mic2)
