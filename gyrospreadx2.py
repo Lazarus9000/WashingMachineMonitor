@@ -88,7 +88,7 @@ templist = [];
 
 def getMicIn(mic):
 	totalmic = 0
-	templist = [];
+	del templist [:];
 	for x in range(0, samples):
 		micout = readadc(mic, SPICLK, SPIMOSI, SPIMISO, SPICS)
 		templist.append(abs(micout-512.0))
