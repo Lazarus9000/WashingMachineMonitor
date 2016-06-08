@@ -94,6 +94,7 @@ def getMicIn(mic):
 		templist.append(abs(micout-512.0))
 		totalmic += abs(micout-512.0)
 		time.sleep(0.001)
+	print templist
 	return 	totalmic
 
 def try_io(call, tries=10):
