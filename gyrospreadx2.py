@@ -94,7 +94,7 @@ def getMicIn(mic):
 		templist.append(abs(micout-512.0))
 		totalmic += abs(micout-512.0)
 		time.sleep(0.001)
-	print templist
+	#print templist
 	return 	totalmic
 
 def try_io(call, tries=10):
@@ -252,7 +252,7 @@ while True:
 	inputMic1 = getMicIn(mic1)
 	miclist1 = templist;
 	#https://wiki.python.org/moin/HowTo/Sorting
-	print templist
+	#print templist
 	sortlist = sorted(miclist1)
 	window = 20;
 	mid1 = sortlist[window:samples-window]
