@@ -256,7 +256,7 @@ while True:
 	mid1 = sortlist[window:samples-window]
 	totalmid1 = 0;
 	for x in range(window, samples-window):		
-		totalmid1 += sortlist(x)
+		totalmid1 += sortlist[x]
 		
 	inputMic2 = getMicIn(mic2)
 	miclist2 = templist;
@@ -265,7 +265,7 @@ while True:
 	mid2 = sortlist[window:samples-window]
 	totalmid2 = 0;
 	for x in range(window, samples-window):		
-		totalmid2 += sortlist(x)
+		totalmid2 += sortlist[x]
 	
 	if diffAcc1 < 50000 and status == "off":
 		s = datetime.now()
