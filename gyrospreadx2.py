@@ -251,6 +251,7 @@ while True:
 	#c = datetime.strptime(t.strftime(), '%H:%M:%S')
 	inputMic1 = getMicIn(mic1)
 	miclist1 = templist;
+	print miclist1
 	#https://wiki.python.org/moin/HowTo/Sorting
 	#print templist
 	sortlist = sorted(miclist1)
@@ -262,6 +263,7 @@ while True:
 		
 	inputMic2 = getMicIn(mic2)
 	miclist2 = templist;
+	print miclist2
 	sortlist = sorted(miclist2)
 	window = 20;
 	mid2 = sortlist[window:samples-window]
@@ -307,7 +309,7 @@ while True:
 		print(diffAcc2)
 		print(inputMic1)
 		print(inputMic2)
-		worksheet.append_row(datetime.now(), diffAcc1, diffAcc2, inputMic1, inputMic2, status, notify, totalmid1, totalmid2, miclist1, miclist2)
+		worksheet.append_row(datetime.now(), diffAcc1, diffAcc2, inputMic1, inputMic2, status, notify, totalmid1, totalmid2)
 	except:
         # Error appending data, most likely because credentials are stale.
         # Null out the worksheet so a login is performed at the top of the loop.
