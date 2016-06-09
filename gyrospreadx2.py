@@ -173,7 +173,7 @@ GDOCS_OAUTH_JSON       = DIR + 'MyProject-07f7568ae491.json'
 status = "off"
 
 # Google Docs spreadsheet name.
-GDOCS_SPREADSHEET_NAME = 'Sensor test'
+GDOCS_SPREADSHEET_NAME = 's2sheet'
 
 # How long to wait (in seconds) between measurements.
 FREQUENCY_SECONDS      = 30
