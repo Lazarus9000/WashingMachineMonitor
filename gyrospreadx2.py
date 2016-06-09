@@ -168,7 +168,7 @@ bus = smbus.SMBus(1) # or bus = smbus.SMBus(1) for Revision 2 boards
 ##prevZ2 = try_io(lambda: read_word_2c(address2, 0x3f))
 
 time.sleep(1)
-GDOCS_OAUTH_JSON       = DIR + 'client_secret.json'
+GDOCS_OAUTH_JSON       = DIR + 'client_secret2.json'
 
 status = "off"
 
