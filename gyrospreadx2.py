@@ -260,11 +260,11 @@ while True:
 	window = 20;
 	mid1 = sortlist[window:samples-window]
 	totalmid1 = 0;
-	for x in range(window:samples-window):		
+	for x in range(window,samples-window):		
 		totalmid1 += sortlist[x]
 	
 	totalhigh1 = 0;
-	for x in range(samples-window:samples):		
+	for x in range(samples-window,samples):		
 		totalhigh1 += sortlist[x]
 	
 	inputMic2 = getMicIn(mic2)
@@ -277,7 +277,7 @@ while True:
 	for x in range(window, samples-window):		
 		totalmid2 += sortlist2[x]
 	totalhigh2 = 0;
-	for x in range(samples-window:samples):		
+	for x in range(samples-window,samples):		
 		totalhigh2 += sortlist[x]
 		
 	if diffAcc1 < 50000 and status == "off":
