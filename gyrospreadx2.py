@@ -318,7 +318,7 @@ while True:
 		print(diffAcc2)
 		print(inputMic1)
 		print(inputMic2)
-		worksheet.append_row([datetime.now(), diffAcc1, diffAcc2, inputMic1, totalmid1, totalhigh1, inputMic2, totalmid2, totalhigh2)
+		worksheet.append_row([datetime.now(), diffAcc1, diffAcc2, inputMic1, totalmid1, totalhigh1, inputMic2, totalmid2, totalhigh2])
 	except:
         # Error appending data, most likely because credentials are stale.
         # Null out the worksheet so a login is performed at the top of the loop.
