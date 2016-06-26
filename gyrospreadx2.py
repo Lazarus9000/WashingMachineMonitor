@@ -278,7 +278,7 @@ while True:
 		totalmid2 += sortlist2[x]
 	totalhigh2 = 0;
 	for x in range(samples-window,samples):		
-		totalhigh2 += sortlist[x]
+		totalhigh2 += sortlist2[x]
 		
 	if diffAcc1 < 50000 and status == "off":
 		s = datetime.now()
