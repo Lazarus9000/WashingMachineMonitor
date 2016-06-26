@@ -264,12 +264,12 @@ while True:
 	inputMic2 = getMicIn(mic2)
 	miclist2 = templist;
 	print miclist2
-	sortlist = sorted(miclist2)
+	sortlist2 = sorted(miclist2)
 	window = 20;
-	mid2 = sortlist[window:samples-window]
+	mid2 = sortlist2[window:samples-window]
 	totalmid2 = 0;
 	for x in range(window, samples-window):		
-		totalmid2 += sortlist[x]
+		totalmid2 += sortlist2[x]
 	
 	if diffAcc1 < 50000 and status == "off":
 		s = datetime.now()
@@ -309,7 +309,7 @@ while True:
 		print(diffAcc2)
 		print(inputMic1)
 		print(inputMic2)
-		worksheet.append_row([datetime.now(), diffAcc1, diffAcc2, inputMic1, inputMic2])
+		worksheet.append_row([datetime.now(), diffAcc1, diffAcc2, inputMic1, totalmid1, inputMic2, totalmid2, miclist1, miclist2])
 	except:
         # Error appending data, most likely because credentials are stale.
         # Null out the worksheet so a login is performed at the top of the loop.
