@@ -13,6 +13,8 @@ import smbus
 import math
 import RPi.GPIO as GPIO
 
+time.sleep(240)
+
 DIR= '/home/pi/FTP/git/WashingMachineMonitor/'
 
 GPIO.setmode(GPIO.BCM)
